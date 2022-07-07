@@ -7,18 +7,17 @@ import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import owner.BrowserStackConfig;
-
 import java.net.MalformedURLException;
 import java.net.URL;
 
 public class BrowserstackMobileDriver implements WebDriverProvider {
-    static BrowserStackConfig config = ConfigFactory.create(BrowserStackConfig.class);
+static  BrowserStackConfig config = ConfigFactory.create(BrowserStackConfig.class);
     @Override
     public WebDriver createDriver(Capabilities capabilities) {
         MutableCapabilities mutableCapabilities = new MutableCapabilities();
         mutableCapabilities.merge(capabilities);
         // Set your access credentials
-        mutableCapabilities.setCapability("browserstack.user", config.user());
+         mutableCapabilities.setCapability("browserstack.user", config.user());
         mutableCapabilities.setCapability("browserstack.key", config.key());
 
         // Set URL of the application under test
@@ -38,7 +37,7 @@ public class BrowserstackMobileDriver implements WebDriverProvider {
 
     public static URL getBrowserstackUrl() {
         try {
-            return new URL(config.baseUrl());
+           return new URL(config.baseUrl());
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
