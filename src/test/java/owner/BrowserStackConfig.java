@@ -2,9 +2,9 @@ package owner;
 
 
 import org.aeonbits.owner.Config;
-import java.net.URL;
 
-//@Config.LoadPolicy(Config.LoadType.MERGE)
+
+@Config.LoadPolicy(Config.LoadType.MERGE)
 @Config.Sources({"classpath:credentials.properties"})
 public interface BrowserStackConfig extends Config {
 
